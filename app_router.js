@@ -16,19 +16,22 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
     switch (event.message.text){
         case "1":
-            event.reply(event.message.text+" Ya!")  
+            event.reply(event.message.text+" Ya!  01")  
         break;
         case "3":
-            event.reply(event.message.text+" Ya!")  
+            event.reply(event.message.text+" Ya!  03")  
         break;
         case "5":
-            event.reply(event.message.text+" Ya!")  
+            event.reply(event.message.text+" Ya!  05")  
         break;
         case "7":
-            event.reply(event.message.text+" Ya!")  
+            event.reply(event.message.text+" Ya!  07")  
         break;
 
-    } 
+    }
+});    
+
+bot.on('message', function (event) {
     event.reply(event.message.text+" Ya!").then(function (data) {
         console.log('Success', data);
     }).catch(function (error) {
