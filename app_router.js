@@ -14,7 +14,22 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
-    event.reply(event.message.text+"Ya!").then(function (data) {
+    switch (event.message.text){
+        case "1":
+            event.reply(event.message.text+" Ya!")  
+        break;
+        case "3":
+            event.reply(event.message.text+" Ya!")  
+        break;
+        case "5":
+            event.reply(event.message.text+" Ya!")  
+        break;
+        case "7":
+            event.reply(event.message.text+" Ya!")  
+        break;
+
+    } 
+    event.reply(event.message.text+" Ya!").then(function (data) {
         console.log('Success', data);
     }).catch(function (error) {
         console.log('Error', error);
