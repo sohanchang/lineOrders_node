@@ -15,20 +15,21 @@ app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
     switch (event.message.text){
-        case "01":
+        case "T1":
             event.reply(event.message.text+" Ya!  01")  
         break;
-        case "03":
+        case "T3":
             event.reply(event.message.text+" Ya!  03")  
         break;
-        case "05":
+        case "T5":
             event.reply(event.message.text+" Ya!  05")  
         break;
-        case "07":
+        case "T7":
             event.reply(event.message.text+" Ya!  07")  
         break;
-
-    };
+        default:
+            event.reply(event.message.text)
+    }
 });    
 
 bot.on('message', function (event) {
