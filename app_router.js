@@ -16,19 +16,39 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
     switch (event.message.text){
         case "T1":
-            event.reply(event.message.text+" Ya!  01")  
+            event.reply(event.message.text+" Ya!  01").then(function (data) {
+                console.log('Success', data);
+            }).catch(function (error) {
+                console.log('Error', error);
+            });  
         break;
         case "T3":
-            event.reply(event.message.text+" Ya!  03")  
+            event.reply(event.message.text+" Ya!  03").then(function (data) {
+                console.log('Success', data);
+            }).catch(function (error) {
+                console.log('Error', error);
+            });  
         break;
         case "T5":
-            event.reply(event.message.text+" Ya!  05")  
+            event.reply(event.message.text+" Ya!  05").then(function (data) {
+                console.log('Success', data);
+            }).catch(function (error) {
+                console.log('Error', error);
+            });  
         break;
         case "T7":
-            event.reply(event.message.text+" Ya!  07")  
+            event.reply(event.message.text+" Ya!  07").then(function (data) {
+                console.log('Success', data);
+            }).catch(function (error) {
+                console.log('Error', error);
+            });  
         break;
         default:
-            event.reply(event.message.text)
+            event.reply(event.message.text).then(function (data) {
+                console.log('Success', data);
+            }).catch(function (error) {
+                console.log('Error', error);
+            });
     }
 });    
 
