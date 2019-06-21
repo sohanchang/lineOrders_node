@@ -14,7 +14,8 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
-    switch (event.message.text){
+    var gmessagetext = event.message.text,
+    switch (gmessagetext){
         case "T1":
             event.reply(event.message.text+" Ya!  01").then(function (data) {
                 console.log('Success', data);
