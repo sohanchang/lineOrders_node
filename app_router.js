@@ -28,7 +28,7 @@ bot.on('message', function (event) {
     //   };
         msg = event.message.text;
         if (msg == '2go') {
-        event.reply(event.message.text+"test  OK!  "+profile.displayName).then(function (data) {
+        event.reply(event.message.text+"test  OK!  ").then(function (data) {
                             console.log('Success', data);
                         }).catch(function (error) {
                              console.log('Error', error);
