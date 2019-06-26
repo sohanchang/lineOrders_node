@@ -14,25 +14,23 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
- //   if (source.userId) {
- //       return client.getProfile(source.userId)
- //         .then((profile) => replyText(
- //           replyToken,
- //           [
- //             `Display name: ${profile.displayName}`,
- //             `Status message: ${profile.statusMessage}`,
- //           ]
- //         ));
- //     } else {
- //       return replyText(replyToken, 'Bot can\'t use profile API without user ID');
- //     };
- //       event.message.text
-        event.reply(event.message.text+" 003!").then(function (data) {
+    if (source.userId) {
+        return client.getProfile(source.userId)
+          .then((profile) => replyText(
+            replyToken,
+            [
+              `Display name: ${profile.displayName}`,
+              `Status message: ${profile.statusMessage}`,
+            ]
+          ));
+      } else {
+        return replyText(replyToken, 'Bot can\'t use profile API without user ID');
+      };
+
+        event.reply(event.message.text+"  OK!  "+profile.displayName).then(function (data) {
                             console.log('Success', data);
-                            event.reply(event.message.text+" OK!");
                         }).catch(function (error) {
                              console.log('Error', error);
-                             event.reply(event.message.text+" Error!");
                              });           
 });
 
