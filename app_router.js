@@ -27,7 +27,7 @@ bot.on('message', function (event) {
     //     return replyText(replyToken, 'Bot can\'t use profile API without user ID');
     //   };
         msg = event.message.text;
-        if msg === '2go' {
+        if (msg == '2go') {
         event.reply(event.message.text+"test  OK!  "+profile.displayName).then(function (data) {
                             console.log('Success', data);
                         }).catch(function (error) {
