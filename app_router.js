@@ -14,13 +14,25 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
+    event.reply(event.message.text+" Ya!").then(function (data) {
+        console.log('Success', data);
+    }).catch(function (error) {
+        console.log('Error', error);
+    });
+});
+
+bot.on('message', function (event) {
     switch (event.type) {
         case 'message':
           const message = event.message;
           switch (message.type) {
             case 'text':
-              if message.text = "test",  
-              return handleText(message, event.replyToken, event.source);
+              switch (message.text){
+                case 'test': 
+                  return handleText(message, event.replyToken, event.source);
+                default:
+                  throw new Error(`Unknown message text: ${JSON.stringify(message)}`);    
+              }
             case 'image':
               return handleImage(message, event.replyToken);
     //        case 'video':
@@ -61,14 +73,6 @@ bot.on('message', function (event) {
           throw new Error(`Unknown event: ${JSON.stringify(event)}`);
       }
 });    
-
-bot.on('message', function (event) {
-    event.reply(event.message.text+" Ya!").then(function (data) {
-        console.log('Success', data);
-    }).catch(function (error) {
-        console.log('Error', error);
-    });
-});
 
 //Express API --------- App.get('path', callback function);
 //routes HTTP GET requests to the specified path with the specified callback functions
