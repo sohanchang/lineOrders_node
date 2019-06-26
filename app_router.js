@@ -16,20 +16,20 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
     switch (event.type) {
         case 'message':
-          const message = event.message;
-          switch (message.type) {
+          const messagecont = event.message;
+          switch (messagecont.text) {
             case 'text':
-              switch (message.text){
-                case 'test': 
-                event.reply(event.message.text+" 001!").then(function (data) {
+ //             switch (message.text){
+ //               case 'test': 
+                event.reply(event.message.text+" 003!").then(function (data) {
                             console.log('Success', data);});
                 //  return handleText(message, event.replyToken, event.source);
                 default:
                   throw new Error(`Unknown message text: ${JSON.stringify(message)}`);    
               }
-            default:
-              throw new Error(`Unknown message: ${JSON.stringify(message)}`);
-            } 
+ //           default:
+  //            throw new Error(`Unknown message: ${JSON.stringify(message)}`);
+  //          } 
         default:
           throw new Error(`Unknown event: ${JSON.stringify(event)}`);
         }                  
