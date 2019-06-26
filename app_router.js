@@ -1,50 +1,50 @@
-'use strict';
-
-const line = require('@line/bot-sdk');
 const express = require('express');
+const linebot = require('linebot');
+var app = module.exports = express();
 
-// create LINE SDK config from env variables
-const config = {
-  channelId: process.env.CHANNEL_ID,
-  channelSecret: process.env.CHANNEL_SECRET,
-  channelAccessToken: process.env.CHANNEL_TOKEN,  
-};
-
-// create LINE SDK client
-const client = new line.Client(config);
-
-// create Express app
-// about Express itself: https://expressjs.com/
-const app = express();
-
-// register a webhook handler with middleware
-// about the middleware, please refer to doc
-app.post('/callback', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).end();
-    });
+const bot = linebot({
+    channelId: process.env.CHANNEL_ID,
+    channelSecret: process.env.CHANNEL_SECRET,
+    channelAccessToken: process.env.CHANNEL_TOKEN
 });
 
-// event handler
-function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
-    return Promise.resolve(null);
-  }
+const linebotParser = bot.parser();
 
-  // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
+// Redirect linebot webhook url to linebot parser
+app.post('/linewebhook', linebotParser);
 
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
-}
+bot.on('message', function (event) {
+    // if (source.userId) {
+    //     return client.getProfile(source.userId)
+    //       .then((profile) => replyText(
+    //         replyToken,
+    //         [
+    //           `Display name: ${profile.displayName}`,
+    //           `Status message: ${profile.statusMessage}`,
+    //         ]
+    //       ));
+    //   } else {
+    //     return replyText(replyToken, 'Bot can\'t use profile API without user ID');
+    //   };
+        msg = event.message.text;
+        if msg === '2go' {
+        event.reply(event.message.text+"test  OK!  "+profile.displayName).then(function (data) {
+                            console.log('Success', data);
+                        }).catch(function (error) {
+                             console.log('Error', error);
+                             });         
+                            }
 
-// listen on port
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`listening on ${port}`);
+});
+
+
+
+//Express API --------- App.get('path', callback function);
+//routes HTTP GET requests to the specified path with the specified callback functions
+app.get('/', function (request, response) {
+    response.json({ message: 'response from node service!' });
+});
+
+app.post('/ajax', function (request, response) {
+    response.send("response by ajax");
 });
