@@ -16,8 +16,8 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
     switch (event.type) {
         case 'message':
-          const messagecont = event.message;
-          switch (messagecont.text) {
+ //         const messagecont = event.message;
+          switch (event.message.text) {
             case 'text':
  //             switch (message.text){
  //               case 'test': 
