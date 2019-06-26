@@ -26,6 +26,7 @@ bot.on('message', function (event) {
     //   } else {
     //     return replyText(replyToken, 'Bot can\'t use profile API without user ID');
     //   };
+    buttonsImageURL = 'https://gam.jzm.mybluehost.me/pictures/line/0d50ed3b-f5ff-4a5a-bd81-bd35970e814c.png';
     msg1 ={
         type: 'template',
         altText: 'Carousel alt text',
