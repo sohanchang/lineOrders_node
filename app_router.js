@@ -14,8 +14,8 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
-    switch (event.type) {
-        case 'message':
+ //   switch (event.type) {
+ //       case 'message':
  //         const messagecont = event.message;
           switch (event.message.text) {
             case 'text':
@@ -31,9 +31,9 @@ bot.on('message', function (event) {
  //           default:
   //            throw new Error(`Unknown message: ${JSON.stringify(message)}`);
   //          } 
-        default:
-          throw new Error(`Unknown event: ${JSON.stringify(event)}`);
-        }                  
+  //      default:
+  //        throw new Error(`Unknown event: ${JSON.stringify(event)}`);
+  //      }                  
 //    event.reply(event.message.text+" 001!").then(function (data) {
 //        console.log('Success', data);    
 //    }).catch(function (error) {
