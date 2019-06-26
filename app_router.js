@@ -14,17 +14,30 @@ const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
-    event.reply(event.message.text+" 001!").then(function (data) {
-        console.log('Success', data);    
-    }).catch(function (error) {
-        console.log('Error', error);
-    });
-    
-    event.reply(event.message.text+" 002!").then(function (data) {
-        console.log('Success', data);    
-    }).catch(function (error) {
-        console.log('Error', error);
-    });    
+    switch (event.type) {
+        case 'message':
+          const message = event.message;
+          switch (message.type) {
+            case 'text':
+              switch (message.text){
+                case 'test': 
+                event.reply(event.message.text+" 001!").then(function (data) {
+                            console.log('Success', data);});
+                //  return handleText(message, event.replyToken, event.source);
+                default:
+                  throw new Error(`Unknown message text: ${JSON.stringify(message)}`);    
+              }
+            default:
+              throw new Error(`Unknown message: ${JSON.stringify(message)}`);
+            } 
+        default:
+          throw new Error(`Unknown event: ${JSON.stringify(event)}`);
+        }                  
+//    event.reply(event.message.text+" 001!").then(function (data) {
+//        console.log('Success', data);    
+//    }).catch(function (error) {
+//        console.log('Error', error);
+//    });
 });
 
 
