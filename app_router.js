@@ -22,7 +22,8 @@ bot.on('message', function (event) {
  //             switch (message.text){
  //               case 'test': 
                 event.reply(event.message.text+" 003!").then(function (data) {
-                            console.log('Success', data);});
+                            console.log('Success', data)
+                        });
                 //  return handleText(message, event.replyToken, event.source);
                 default:
                   throw new Error(`Unknown message text: ${JSON.stringify(message)}`);    
