@@ -26,9 +26,37 @@ bot.on('message', function (event) {
     //   } else {
     //     return replyText(replyToken, 'Bot can\'t use profile API without user ID');
     //   };
+    msg1 ={
+        type: 'template',
+        altText: 'Carousel alt text',
+        template: {
+          type: 'carousel',
+          columns: [
+            {
+              thumbnailImageUrl: buttonsImageURL,
+              title: 'hoge',
+              text: 'fuga',
+              actions: [
+                { label: 'Go to line.me', type: 'uri', uri: 'https://line.me' },
+                { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
+              ],
+            },
+            {
+              thumbnailImageUrl: buttonsImageURL,
+              title: 'hoge',
+              text: 'fuga',
+              actions: [
+                { label: '言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
+                { label: 'Say message', type: 'message', text: 'Rice=米' },
+              ],
+            },
+          ],
+        },
+    };   
         msg = event.message.text;
+        bot.
         if (msg == '2go') {
-        event.reply(event.message.text+"test  OK!  ").then(function (data) {
+        event.reply(msg1 ).then(function (data) {
                             console.log('Success', data);
                         }).catch(function (error) {
                              console.log('Error', error);
