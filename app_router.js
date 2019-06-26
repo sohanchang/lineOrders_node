@@ -44,8 +44,8 @@ bot.on('message', function (event) {
             },
             {
               thumbnailImageUrl: buttonsImageURL,
-              title: 'hoge',
-              text: 'fuga',
+              title: 'hoge2',
+              text: 'fuga2',
               actions: [
                 { label: '言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
                 { label: 'Say message', type: 'message', text: 'Rice=米' },
