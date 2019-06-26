@@ -54,7 +54,6 @@ bot.on('message', function (event) {
         },
     };   
         msg = event.message.text;
-        bot.
         if (msg == '2go') {
         event.reply(msg1 ).then(function (data) {
                             console.log('Success', data);
