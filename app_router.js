@@ -56,20 +56,22 @@ bot.on('message', function (event) {
         },
     }; 
 
-    msg2 = { type: 'message',
-             replyToken: 'xxxxxxx',
-             source: 
-                { userId: 'xxxxxxx',
-                type: 'user',
-                profile: [Function] },
-             timestamp: 1484472609833,
-             message: 
-                { type: 'text',
-                    id: 'xxxxxxxxxx',
-                 text: 'hihi',
-                 content: [Function] },
-             reply: [Function] }
-            };
+    msg2 = {
+        type: 'template',
+        altText: 'Buttons alt text',
+        template: {
+          type: 'buttons',
+          thumbnailImageUrl: buttonsImageURL,
+          title: 'My button sample',
+          text: 'Hello, my button',
+          actions: [
+            { label: 'Go to line.me', type: 'uri', uri: 'https://line.me' },
+            { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
+            { label: '言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
+            { label: 'Say message', type: 'message', text: 'Rice=米' },
+          ],
+        },
+      };
 
         msg = event.message.text;
         if (msg == '2go') {
