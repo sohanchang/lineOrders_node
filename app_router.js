@@ -38,7 +38,7 @@ bot.on('message', function (event) {
               title: 'hoge',
               text: 'fuga',
               actions: [
-                { label: 'Go to web', type: 'uri', uri: 'https://220.135.224.39/index.htm' },
+                { label: 'Go to web', type: 'uri', uri: 'http://220.135.224.39/index.htm' },
                 { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
               ],
             },
