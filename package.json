@@ -9,6 +9,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "@line/bot-sdk": "^6.8.0",
     "express": "^4.16.4",
     "linebot": "^1.4.1",
     "mongoose": "^5.4.0"
