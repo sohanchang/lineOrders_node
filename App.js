@@ -8,5 +8,6 @@ const port = process.env.PORT || 3000;
 //whatever is in the environment variable 'PORT', or 3000 if there's nothing there
 
 //binds and listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
+port = 8080 ;
 app.listen(port);
 console.log(`MERN Stack listening on ${port}`);
