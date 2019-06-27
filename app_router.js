@@ -425,17 +425,18 @@ function handleSticker(message, replyToken) {
 }
 
 // listen on port
-// const port = process.env.PORT || 3000;
-// app.listen(port, () => {
-//   if (baseURL) {
-//     console.log(`listening on ${baseURL}:${port}/callback`);
-//   } else {
-//     console.log("It seems that BASE_URL is not set. Connecting to ngrok...")
-//     ngrok.connect(port, (err, url) => {
-//       if (err) throw err;
+// const port = process.env.PORT || 3000; Heroku 的prot 不一樣
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  if (baseURL) {
+    console.log(`listening on ${baseURL}:${port}/callback`);
+  } else {
+    console.log("It seems that BASE_URL is not set. Connecting to ngrok...")
+    ngrok.connect(port, (err, url) => {
+      if (err) throw err;
 
-//       baseURL = url;
-//       console.log(`listening on ${baseURL}/callback`);
-//     });
-//   }
-// });
+      baseURL = url;
+      console.log(`listening on ${baseURL}/callback`);
+    });
+  }
+});
