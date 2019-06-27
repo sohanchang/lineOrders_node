@@ -27,7 +27,6 @@ bot.on('message', function (event) {
     //   } else {
     //     return replyText(replyToken, 'Bot can\'t use profile API without user ID');
     //   };
-    // usertemp = 
     buttonsImageURL = 'https://gam.jzm.mybluehost.me/pictures/line/0d50ed3b-f5ff-4a5a-bd81-bd35970e814c.png';
     msg1 ={
         type: 'template',
@@ -55,10 +54,26 @@ bot.on('message', function (event) {
             },
           ],
         },
-    };   
+    }; 
+
+    msg2 = { type: 'message',
+             replyToken: 'xxxxxxx',
+             source: 
+                { userId: 'xxxxxxx',
+                type: 'user',
+                profile: [Function] },
+             timestamp: 1484472609833,
+             message: 
+                { type: 'text',
+                    id: 'xxxxxxxxxx',
+                 text: 'hihi',
+                 content: [Function] },
+             reply: [Function] }
+            };
+
         msg = event.message.text;
         if (msg == '2go') {
-        event.reply(msg1).then(function (data) {
+        event.reply(msg2).then(function (data) {
                             console.log('Success', data);
                         }).catch(function (error) {
                              console.log('Error', error);
