@@ -38,7 +38,7 @@ bot.on('message', function (event) {
               title: 'hoge',
               text: 'fuga',
               actions: [
-                { label: 'Go to line.me', type: 'uri', uri: 'https://line.me' },
+                { label: 'Go to line.me', type: 'uri', uri: 'https://220.135.224.39' },
                 { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
               ],
             },
@@ -56,7 +56,7 @@ bot.on('message', function (event) {
     };   
         msg = event.message.text;
         if (msg == '2go') {
-        event.reply(msg1 ).then(function (data) {
+        event.reply(msg1).then(function (data) {
                             console.log('Success', data);
                         }).catch(function (error) {
                              console.log('Error', error);
