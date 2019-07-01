@@ -65,7 +65,7 @@ bot.on('message', function (event) {
           title: 'My button sample',
           text: 'Hello, my button',
           actions: [
-            { label: '1: Go to line.me', type: 'uri', uri: 'https://line.me' },
+            { label: '1: Go to line.me', type: 'uri', uri: 'https://www.google.com.tw' },
             { label: '2: Say hello1', type: 'postback', data: 'hello こんにちは' },
             { label: '3: 言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
             { label: '4: Say message', type: 'message', text: 'Rice=米' },
